@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.10)
+project(HttpClient)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
+set(LIB_DIR ${CMAKE_CURRENT_LIST_DIR}/lib)
+set(INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR}/include)
+file(GLOB SOURCES "src/*.cpp")
+add_executable(HttpClient ${SOURCES})
+include_directories(${INCLUDE_DIR}/curl)
+target_link_libraries(HttpClient ${LIB_DIR}/libcurl.so)
